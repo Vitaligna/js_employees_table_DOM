@@ -164,8 +164,8 @@ function init() {
       name: form.name.value.trim(),
       position: form.position.value.trim(),
       office: form.office.value,
-      age: Number(form.age.value),
-      salary: Number(form.salary.value),
+      age: form.age.value === '' ? null : Number(form.age.value),
+      salary: form.salary.value === '' ? null : Number(form.salary.value),
     };
   }
 
@@ -182,11 +182,15 @@ function init() {
       return 'Office is required';
     }
 
+    if (data.age === null) {
+      return 'Age is required';
+    }
+
     if (data.age < 18 || data.age > 90) {
       return 'Age must be between 18 and 90.';
     }
 
-    if (!data.salary) {
+    if (data.salary === null) {
       return 'Salary is required';
     }
 
