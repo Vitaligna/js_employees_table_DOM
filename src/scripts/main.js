@@ -209,7 +209,7 @@ function init() {
 
   function showNotification(message, type) {
     const container = document.querySelector(
-      '[data-qa="notification-container"]'
+      '[data-qa="notification-container"]',
     );
 
     if (!container) {
